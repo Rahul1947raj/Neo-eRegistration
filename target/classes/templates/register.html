@@ -1,0 +1,31 @@
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Register</title>
+    <script>
+        function goToLogin(){ window.location.href = '/login'; }
+        function validateAndSubmit(e){
+            e.preventDefault();
+            const form = document.getElementById('regForm');
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const password = form.password.value.trim();
+            if(!name || !email || !password){
+                alert('Please fill all fields');
+                return;
+            }
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+<h1>Register Employee</h1><div th:if="${error}" style="color:red;" th:text="${error}"></div>
+<div th:if="${success}" style="color:green;" th:text="${success}"></div><form id="regForm" th:action="@{/register}" method="post" onsubmit="validateAndSubmit(event)">
+    <label>Name: <input type="text" name="name" required/></label><br/>
+    <label>Email: <input type="email" name="email" required/></label><br/>
+    <label>Password: <input type="password" name="password" required/></label><br/>
+    <label>Position: <input type="text" name="position"/></label><br/>
+    <button type="submit">Register</button>
+    <button type="button" onclick="goToLogin()">Go to Login</button>
+</form></body>
+</html>

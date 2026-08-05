@@ -1,0 +1,16 @@
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Profile</title>
+</head>
+<body>
+<h1>Employee Profile</h1><div>
+    <p><strong>Name:</strong> <span th:text="${employee.name}">Name</span></p>
+    <p><strong>Email:</strong> <span th:text="${employee.email}">email</span></p>
+    <p><strong>Position:</strong> <span th:text="${employee.position}">position</span></p>
+</div><p>
+    <button onclick="location.href='/home'">Home</button>
+    <button onclick="location.href='/logout'">Logout</button>
+</p>
+</body>
+</html>

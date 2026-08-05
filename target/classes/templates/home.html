@@ -1,0 +1,16 @@
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Employee Home</title>
+</head>
+<body>
+<h1>Employee Home</h1><div th:if="${loggedIn}">
+    <p>Welcome back, <strong th:text="${employee.name}">Name</strong> (<span th:text="${employee.position}">Position</span>)</p>
+    <button onclick="location.href='/profile'">Go to Profile</button>
+    <button onclick="location.href='/logout'">Logout</button>
+</div><div th:if="${!loggedIn}">
+    <p>You are not logged in.</p>
+    <button onclick="location.href='/login'">Login</button>
+    <button onclick="location.href='/register'">Register</button>
+</div></body>
+</html>
